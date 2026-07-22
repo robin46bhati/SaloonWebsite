@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Italianno&family=Jost:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display text-charcoal;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  /* Visible keyboard focus, luxury-tinted */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #C89B3C;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Signature motif: gold sparkle divider, echoed from the studio's own
+     flyers (the repeating ✦ / ◆ marks around headings and offers). */
+  .gold-divider {
+    @apply flex items-center justify-center gap-3 text-gold;
+  }
+  .gold-divider::before,
+  .gold-divider::after {
+    content: "";
+    height: 1px;
+    width: 2.5rem;
+    background: linear-gradient(90deg, transparent, currentColor);
+    @apply bg-gold/60;
+  }
+  .gold-divider::after {
+    background: linear-gradient(90deg, currentColor, transparent);
+  }
+
+  /* Shimmering gold text used sparingly for signature emphasis */
+  .shimmer-text {
+    background: linear-gradient(90deg, #A57C28 0%, #F3DFA0 25%, #C89B3C 50%, #F3DFA0 75%, #A57C28 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Frosted glass, used deliberately on the sticky nav + hero stat cards only */
+  .glass-charcoal {
+    background: rgba(31, 31, 31, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(200, 155, 60, 0.18);
+  }
+  .glass-gold {
+    background: rgba(248, 244, 236, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(248, 244, 236, 0.25);
+  }
+  .glass-cream {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(200, 155, 60, 0.2);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
