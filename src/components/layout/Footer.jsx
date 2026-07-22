@@ -88,7 +88,7 @@ export default function Footer() {
 
       <div className="relative mt-12 border-t border-white/10 pt-6">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-          <p>© {year} Anjali Makeup Studio. All rights reserved.</p>
+          <p>© {year} Copyright © 2026 Natsu. All Rights Reserved.</p>
           <div className="flex items-center gap-5">
             {footerLinks.legal.map((link) => (
               <Link key={link.path} to={link.path} className="hover:text-gold-light transition-colors">
