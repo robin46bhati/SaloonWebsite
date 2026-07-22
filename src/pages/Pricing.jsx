@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Wand2, Sparkles, Droplet, Scissors } from "lucide-react";
 import SEO from "../components/ui/SEO";
 import PageHero from "../components/ui/PageHero";
@@ -89,7 +90,12 @@ export default function Pricing() {
                         <div className="flex items-center gap-3">
                           <span className="hidden h-1.5 w-1.5 rounded-full bg-gold sm:block" />
                           <div>
-                            <p className="font-body font-medium text-charcoal">{item.name}</p>
+                            <Link
+                              to={`/services/${item.slug}`}
+                              className="font-body font-medium text-charcoal hover:text-gold-dark transition-colors"
+                            >
+                              {item.name}
+                            </Link>
                             {item.description && (
                               <p className="text-xs text-ink/50 mt-0.5 max-w-md">{item.description}</p>
                             )}
@@ -99,14 +105,12 @@ export default function Pricing() {
                           <span className="font-display text-xl font-semibold text-gold-dark">
                             ₹{item.price.toLocaleString("en-IN")}
                           </span>
-                          <a
-                            href={whatsappLink(`Hi! I'd like to book: ${item.name}`)}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            to={`/services/${item.slug}`}
                             className="hidden text-xs font-medium text-charcoal underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-dark sm:inline"
                           >
-                            Book
-                          </a>
+                            View &amp; Book
+                          </Link>
                         </div>
                       </Reveal>
                     ))}

@@ -1,5 +1,4 @@
 import { Check, Gift, Crown } from "lucide-react";
-import { whatsappLink } from "../../data/siteConfig";
 import Reveal from "../ui/Reveal";
 import Button from "../ui/Button";
 
@@ -56,11 +55,11 @@ export default function PackageCard({ pkg, delay = 0 }) {
         </div>
 
         <Button
-          href={whatsappLink(`Hi! I'm interested in the ${name} (₹${price.toLocaleString("en-IN")}).`)}
+          to={`/membership/${pkg.id}`}
           variant={popular ? "primary" : "dark"}
           className="mt-7 w-full"
         >
-          Book This Package
+          View Details &amp; Book
         </Button>
       </article>
     </Reveal>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Wand2, Sparkles, Droplet, Scissors } from "lucide-react";
 import SEO from "../components/ui/SEO";
 import PageHero from "../components/ui/PageHero";
@@ -57,7 +58,7 @@ export default function Services() {
           />
           <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {serviceCategories[0].items.map((item, i) => (
-              <ServiceCard key={item.name} service={item} delay={i * 0.1} />
+              <ServiceCard key={item.slug} service={item} delay={i * 0.1} />
             ))}
           </div>
         </Container>
@@ -87,13 +88,18 @@ export default function Services() {
           <div className="mt-14 overflow-hidden rounded-3xl border border-gold/15 shadow-luxe">
             {serviceCategories[1].items.map((item, i) => (
               <div
-                key={item.name}
+                key={item.slug}
                 className={`flex items-center justify-between gap-4 px-6 py-4 sm:px-10 ${
                   i % 2 === 0 ? "bg-white" : "bg-cream"
                 }`}
               >
                 <div>
-                  <p className="font-body font-medium text-charcoal">{item.name}</p>
+                  <Link
+                    to={`/services/${item.slug}`}
+                    className="font-body font-medium text-charcoal hover:text-gold-dark transition-colors"
+                  >
+                    {item.name}
+                  </Link>
                   <p className="text-xs text-ink/50 mt-0.5">{item.description}</p>
                 </div>
                 <span className="font-display text-xl font-semibold text-gold-dark shrink-0">
@@ -119,7 +125,7 @@ export default function Services() {
               <div className="mt-12 mx-auto max-w-3xl overflow-hidden rounded-3xl border border-gold/15 shadow-luxe">
                 {cat.items.map((item, i) => (
                   <Reveal
-                    key={item.name}
+                    key={item.slug}
                     direction="up"
                     delay={i * 0.06}
                     className={`flex items-center justify-between gap-4 px-6 py-5 sm:px-10 ${
@@ -129,7 +135,12 @@ export default function Services() {
                     <div className="flex items-center gap-3">
                       <Icon size={18} className="text-gold shrink-0" />
                       <div>
-                        <p className="font-body font-medium text-charcoal">{item.name}</p>
+                        <Link
+                          to={`/services/${item.slug}`}
+                          className="font-body font-medium text-charcoal hover:text-gold-dark transition-colors"
+                        >
+                          {item.name}
+                        </Link>
                         <p className="text-xs text-ink/50 mt-0.5">{item.description}</p>
                       </div>
                     </div>

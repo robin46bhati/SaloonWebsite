@@ -4,11 +4,13 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import Pricing from "./pages/Pricing";
 import Gallery from "./pages/Gallery";
 import Team from "./pages/Team";
 import Testimonials from "./pages/Testimonials";
 import Membership from "./pages/Membership";
+import PackageDetail from "./pages/PackageDetail";
 import Offers from "./pages/Offers";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
@@ -23,11 +25,13 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/team" element={<Team />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/membership" element={<Membership />} />
+        <Route path="/membership/:id" element={<PackageDetail />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />

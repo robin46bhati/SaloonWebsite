@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { whatsappLink } from "../../data/siteConfig";
 import Reveal from "../ui/Reveal";
 
 export default function ServiceCard({ service, delay = 0 }) {
-  const { name, description, price, image, category } = service;
+  const { name, description, price, image, category, slug } = service;
 
   return (
     <Reveal direction="up" delay={delay} className="h-full">
-      <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-luxe transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_70px_-15px_rgba(31,31,31,0.35)]">
+      <Link
+        to={`/services/${slug}`}
+        className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-luxe transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_70px_-15px_rgba(31,31,31,0.35)]"
+      >
         <div className="relative h-56 overflow-hidden">
           {image ? (
             <img
@@ -35,17 +38,12 @@ export default function ServiceCard({ service, delay = 0 }) {
         <div className="flex flex-1 flex-col gap-3 p-6">
           <h3 className="font-display text-2xl font-semibold text-charcoal">{name}</h3>
           <p className="flex-1 text-sm leading-relaxed text-ink/65">{description}</p>
-          <a
-            href={whatsappLink(`Hi! I'd like to book: ${name}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-gold-dark transition-colors hover:text-gold"
-          >
-            Book This Service
+          <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-gold-dark transition-colors group-hover:text-gold">
+            View Details &amp; Book
             <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </a>
+          </span>
         </div>
-      </article>
+      </Link>
     </Reveal>
   );
 }
