@@ -88,7 +88,13 @@ export default function Footer() {
 
       <div className="relative mt-12 border-t border-white/10 pt-6">
         <Container className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-          <p>© {year} Copyright © 2026 Natsu. All Rights Reserved.</p>
+        <span
+  onClick={() => window.open("https://arunspx007portfolio.netlify.app/", "_blank")}
+  className="cursor-pointer hover:underline"
+>
+  <p> © {year} Copyright 2026 Arunspx. All Rights Reserved.</p>
+</span>
+          
           <div className="flex items-center gap-5">
             {footerLinks.legal.map((link) => (
               <Link key={link.path} to={link.path} className="hover:text-gold-light transition-colors">
